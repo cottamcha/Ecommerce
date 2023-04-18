@@ -3,12 +3,23 @@ import { MdSecurity } from 'react-icons/md'
 import { BsSuitHeart } from 'react-icons/bs'
 import { RiAccountCircleLine, RiArrowDropDownFill } from 'react-icons/ri'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import UserMenu from './UserMenu'
 
 export default function Top() {
     const [loggedIn, SetLoggedIn] = useState(true)
     const [visible, setVisible] = useState(false)
+    const menuRef = useRef(null);
+
+    const toggleMenu = () => {
+        setVisible(!visible)
+    }
+
+    const hideMenu = () => {
+        setVisible(false);
+      };
+    
+    useOutsideClick(menuRef, hideMenu);
 
   return (
     <div className={styles.top}>
@@ -39,9 +50,9 @@ export default function Top() {
                     </Link>
                 </li>
                 <li className={styles.li}
-                    onMouseOver={()=> setVisible(true)}
-                    onMouseLeave={()=> setVisible(false)}
-                    onBlur={()=> setVisible(false)}
+                    onMouseOver={toggleMenu}
+                    onMouseLeave={toggleMenu}
+
                 >
                     { loggedIn ? (
                         <div>
@@ -63,7 +74,7 @@ export default function Top() {
                             </div>
                         </div>   
                     )}
-                    {visible && <UserMenu  loggedIn={loggedIn}/>}
+                    {visible && <UserMenu ref={menuRef} loggedIn={loggedIn}/>}
                 </li>
             </ul>
         </div>
