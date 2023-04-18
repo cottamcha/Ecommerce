@@ -7,39 +7,43 @@ import { useState } from 'react'
 import UserMenu from './UserMenu'
 
 export default function Top() {
-    const [loggedIn, SetLoggedIn] = useState(false)
+    const [loggedIn, SetLoggedIn] = useState(true)
+    const [visible, setVisible] = useState(false)
 
   return (
     <div className={styles.top}>
         <div className={styles.top__container}>
             <div></div>
             <ul className={styles.top__list}>
-                <li>
+                <li className={styles.li}>
                     <img 
                         src='https://robohash.org/infernomart'
                         alt=""
                     />
                     <span>England / GBP</span>
                 </li>
-                <li>
+                <li className={styles.li}>
                     <MdSecurity />
                     <span>Buyer Protection</span>
                 </li>
-                <li>
+                <li className={styles.li}>
                     <span>Customer Service</span>
                 </li>
-                <li>
+                <li className={styles.li}>
                     <span>Help</span>
                 </li>
-                <li>
+                <li className={styles.li}>
                     <BsSuitHeart />
                     <Link href='/profile/wishlist'>
                         <span>Wishlist</span>
                     </Link>
                 </li>
-                <li>
+                <li className={styles.li}
+                    onMouseOver={()=> setVisible(true)}
+                    onMouseLeave={()=> setVisible(false)}
+                >
                     { loggedIn ? (
-                        <li>
+                        <div>
                             <div className={styles.flex}>
                             <img 
                                 src='https://robohash.org/accountjake'
@@ -48,17 +52,17 @@ export default function Top() {
                                 <span>Jake</span>
                                 <RiArrowDropDownFill />
                             </div>
-                        </li>
+                        </div>
                     ):(
-                        <li>
+                        <div>
                             <div className={styles.flex}>
                                 <RiAccountCircleLine />
                                 <span>Account</span>
                                 <RiArrowDropDownFill />
                             </div>
-                        </li>   
+                        </div>   
                     )}
-                    <UserMenu  loggedIn={loggedIn}/>
+                    {visible && <UserMenu  loggedIn={loggedIn}/>}
                 </li>
             </ul>
         </div>
