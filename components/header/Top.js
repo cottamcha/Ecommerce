@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react'
-import { useOutsideClick } from '../../hooks/useOutsideClick'
+import { useState } from 'react'
+
 
 import { MdSecurity } from 'react-icons/md'
 import { BsSuitHeart } from 'react-icons/bs'
@@ -13,17 +13,10 @@ import styles from './styles.module.scss'
 export default function Top() {
     const [loggedIn, SetLoggedIn] = useState(true)
     const [visible, setVisible] = useState(false)
-    const menuRef = useRef(null);
 
     const toggleMenu = () => {
         setVisible(!visible)
     }
-
-    const hideMenu = () => {
-        setVisible(false);
-      };
-    
-    useOutsideClick(menuRef, hideMenu);
 
   return (
     <div className={styles.top}>
@@ -56,7 +49,6 @@ export default function Top() {
                 <li className={styles.li}
                     onMouseOver={toggleMenu}
                     onMouseLeave={toggleMenu}
-
                 >
                     { loggedIn ? (
                         <div>
@@ -78,7 +70,7 @@ export default function Top() {
                             </div>
                         </div>   
                     )}
-                    {visible && <UserMenu ref={menuRef} loggedIn={loggedIn}/>}
+                    {visible && <UserMenu loggedIn={loggedIn}/>}
                 </li>
             </ul>
         </div>
