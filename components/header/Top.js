@@ -1,10 +1,14 @@
-import styles from './styles.module.scss'
+import { useState, useRef } from 'react'
+import { useOutsideClick } from '../../hooks/useOutsideClick'
+
 import { MdSecurity } from 'react-icons/md'
 import { BsSuitHeart } from 'react-icons/bs'
 import { RiAccountCircleLine, RiArrowDropDownFill } from 'react-icons/ri'
+
 import Link from 'next/link'
-import { useState, useRef } from 'react'
 import UserMenu from './UserMenu'
+
+import styles from './styles.module.scss'
 
 export default function Top() {
     const [loggedIn, SetLoggedIn] = useState(true)
