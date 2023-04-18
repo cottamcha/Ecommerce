@@ -41,6 +41,7 @@ export default function Top() {
                 <li className={styles.li}
                     onMouseOver={()=> setVisible(true)}
                     onMouseLeave={()=> setVisible(false)}
+                    onBlur={()=> setVisible(false)}
                 >
                     { loggedIn ? (
                         <div>
