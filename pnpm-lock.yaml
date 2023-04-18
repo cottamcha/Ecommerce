@@ -10,6 +10,7 @@ specifiers:
   next-redux-wrapper: ^8.1.0
   react: 18.2.0
   react-dom: 18.2.0
+  react-icons: ^4.8.0
   react-redux: ^8.0.5
   redux: ^4.2.1
   redux-devtools-extension: ^2.13.9
@@ -25,6 +26,7 @@ dependencies:
   next-redux-wrapper: 8.1.0_tkvsu76c7rlbwbwuszet747gf4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-icons: 4.8.0_react@18.2.0
   react-redux: 8.0.5_egguyi6kvemdtrnkbl3bdoeaey
   redux: 4.2.1
   redux-devtools-extension: 2.13.9_redux@4.2.1
@@ -1986,6 +1988,14 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-icons/4.8.0_react@18.2.0:
+    resolution: {integrity: sha512-N6+kOLcihDiAnj5Czu637waJqSnwlMNROzVZMhfX68V/9bu9qHaMIJC4UdozWoOk57gahFCNHwVvWzm0MTzRjg==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-is/16.13.1:
