@@ -14,10 +14,6 @@ export default function Top() {
     const [loggedIn, SetLoggedIn] = useState(true)
     const [visible, setVisible] = useState(false)
 
-    const toggleMenu = () => {
-        setVisible(!visible)
-    }
-
   return (
     <div className={styles.top}>
         <div className={styles.top__container}>
@@ -47,8 +43,8 @@ export default function Top() {
                     </Link>
                 </li>
                 <li className={styles.li}
-                    onMouseOver={toggleMenu}
-                    onMouseLeave={toggleMenu}
+                    onMouseOver={() => setVisible(true)}
+                    onMouseLeave={() => setVisible(false)}
                 >
                     { loggedIn ? (
                         <div>
