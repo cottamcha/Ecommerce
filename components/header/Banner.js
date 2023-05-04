@@ -1,10 +1,13 @@
 import Link from 'next/link'
 import styles from './styles.module.scss'
 
-export default function Ad() {
+function Banner() {
   return (
     <Link href="/browse">
         <div className={styles.ad}></div>
     </Link>
   )
 }
+
+
+export default Banner
